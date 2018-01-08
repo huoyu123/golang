@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开启端口转发访问限制</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootswatch/3.2.0/css/cosmo/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div>
+        <h3>开户远程调试转发接口信息,请支付宝扫码支持一下3号，为方便远程调试加班写代码不容易啊！！！</h3>
+        <p class="alert alert-warning">每个用户只能开10个端口，请记得开完端口使用完成后关闭，如没有关闭且超过限制就会自动添加到黑名单，请扫一下支付定领红包，在找学乐3号解除</p>
+        <img src="/img/code.jpg" style="display: block;  width: 562px; height: 844px;">
+    </div>
+    <div>
+        <pre>
+            开启或关闭转发接口
+            /ForwardWork?auth=123&status=1&fromAddr=:8010&toAddr=10.11.2.20:3389
+            auth：密码
+            status：如果是开启转发，则为1，如果是关闭转发，则为0
+            fromAddr：要用来在A机器上监听的一个端口，用来给客户端连接
+            toAddr：把fromAddr端口的数据转发到哪个IP的端口上
+            转发成功如下：
+            {
+                code: 0,
+                msg: ""
+            }
+        </pre>
+        <pre>
+            查看转发相关信息
+            /status
+            {
+                clients_Count: 0,
+                clients_List: null,
+                forwardInfo: [
+                ":8010 ---- 10.11.2.20:3389"
+                ],
+                restApi_Addr: "0.0.0.0:8000",
+                runtime_GOARCH: "amd64",
+                runtime_GOOS: "windows",
+                runtime_NumGoroutine: 9,
+                server_Time: "2018-01-08T09:38:51.127806+08:00"
+            }
+        </pre>
+    </div>
+</div>
+</body>
+</html>
